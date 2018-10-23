@@ -90,7 +90,7 @@ open class Coordinator {
     /// - Parameters:
     ///   - subCoordinator: The sub coordinator to be started and added to the child coordinators.
     /// - Returns: The child coordinator object for consecutive callback definitions (like `onFinish`).
-    public func start(subCoordinator childCoordinator: Coordinator) -> Coordinator {
+    open func start(subCoordinator childCoordinator: Coordinator) -> Coordinator {
         childCoordinators.append(childCoordinator)
         childCoordinator.parentCoordinator = self
         childCoordinator.start()
@@ -101,7 +101,7 @@ open class Coordinator {
     ///
     /// - Parameters:
     ///    - closure: The callback to be called on finish.
-    public func onFinish(_ closure: @escaping () -> Void) {
+    open func onFinish(_ closure: @escaping () -> Void) {
         finishClosure = closure
     }
 
@@ -109,7 +109,7 @@ open class Coordinator {
     ///
     /// - Parameters:
     ///   - closure: The callback to be called on disappear.
-    public func onDisappear(_ closure: @escaping () -> Void) {
+    open func onDisappear(_ closure: @escaping () -> Void) {
         disappearClosure = closure
     }
 
@@ -118,7 +118,7 @@ open class Coordinator {
     /// - Parameters:
     ///   - alreadyDisappeared: Dismisses or pops the view controller if set to `false`.
     ///   - animated: Animates the disappearance of the view controller.
-    public func finish(alreadyDisappeared: Bool = false, animated: Bool = true) {
+    open func finish(alreadyDisappeared: Bool = false, animated: Bool = true) {
         finishCalled = true
 
         let finishClosure = self.finishClosure
@@ -165,7 +165,7 @@ open class Coordinator {
     ///   - coordinatorType: The type of the coordinator to be searched for.
     ///
     /// - Returns: A coordinator of type `coordinatorType` inside the hierarchy or nil.
-    public func coordinatorInChildHierarchy<T: Coordinator>(ofType coordinatorType: T.Type) -> T? {
+    open func coordinatorInChildHierarchy<T: Coordinator>(ofType coordinatorType: T.Type) -> T? {
         for coordinator in childCoordinators {
             if let childCoordinator = coordinator.coordinatorInChildHierarchy(ofType: coordinatorType) {
                 return childCoordinator
@@ -186,7 +186,7 @@ open class Coordinator {
     ///   - animate: Animate presentation of the view controller.
     ///   - style: The expected presentation style. Defaults to automatic detection.
     @available(*, deprecated)
-    public func present(_ viewCtrl: UIViewController, animated: Bool = true, style: PresentationStyle? = nil, navigation: Bool = true) {
+    open func present(_ viewCtrl: UIViewController, animated: Bool = true, style: PresentationStyle? = nil, navigation: Bool = true) {
         let presentationStyle = style ?? automaticPresentationStyle(forViewController: viewCtrl)
 
         let presentingViewController = self.presentingViewController ?? UIWindow.visibleViewController(from: viewCtrl)
@@ -214,7 +214,7 @@ open class Coordinator {
     ///
     /// - Parameters:
     ///   - viewCtrl: The view controller which disappeared.
-    public func didDisappear() {
+    open func didDisappear() {
         if !finishCalled { finish(alreadyDisappeared: true) }
     }
 
