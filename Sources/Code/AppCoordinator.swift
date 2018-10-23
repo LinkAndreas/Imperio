@@ -12,7 +12,7 @@ import UIKit
 open class AppCoordinator: Coordinator {
     // MARK: - Stored Instance Properties
     /// The devices screen as a window.
-    public let window = UIWindow(frame: UIScreen.main.bounds)
+    public let window: UIWindow = UIWindow(frame: UIScreen.main.bounds)
 
     // MARK: - Initializers
     /// Initializes a new AppCoordinator object and creates a window.

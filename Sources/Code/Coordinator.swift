@@ -42,7 +42,7 @@ public protocol Coordinatable {
 open class Coordinator {
     // MARK: - Stored Instance Properties
     /// The coordinators started from this coordinator.
-    private var childCoordinators: [Coordinator] = []
+    public private(set) var childCoordinators: [Coordinator] = []
 
     /// The coordinator who started this coordinator.
     private weak var parentCoordinator: Coordinator?
@@ -57,7 +57,7 @@ open class Coordinator {
     private var disappearClosure: (() -> Void)?
 
     /// This can be used on didDisappear to assume a screen pan swipe or back button press.
-    public var finishCalled = false
+    public var finishCalled: Bool = false
 
     // MARK: - Computed Instance Properties
     /// Returns the presenting navigation controller if available. Extracts the navigation controller
@@ -142,7 +142,6 @@ open class Coordinator {
                     if let presentingViewCtrl = navigationCtrl.presentingViewController {
                         presentingViewCtrl.dismiss(animated: animated, completion: disappearClosure)
                     } else {
-                        // TODO: this case needed?
                         navigationCtrl.dismiss(animated: animated, completion: disappearClosure)
                     }
                 } else {
@@ -160,6 +159,22 @@ open class Coordinator {
         self.disappearClosure = nil
     }
 
+    /// Searches for a coordinator of `coordinatorType` inside the hierarchy.
+    ///
+    /// - Parameters:
+    ///   - coordinatorType: The type of the coordinator to be searched for.
+    ///
+    /// - Returns: A coordinator of type `coordinatorType` inside the hierarchy or nil.
+    public func coordinatorInChildHierarchy<T: Coordinator>(ofType coordinatorType: T.Type) -> T? {
+        for coordinator in childCoordinators {
+            if let childCoordinator = coordinator.coordinatorInChildHierarchy(ofType: coordinatorType) {
+                return childCoordinator
+            }
+        }
+
+        return self as? T
+    }
+
     /// Presents a view controller given the specified presentation style.
     ///
     /// If no presentation style is given then it will be automatically detected by the following rules:
@@ -170,13 +185,14 @@ open class Coordinator {
     ///   - viewController: The view controller to be presented.
     ///   - animate: Animate presentation of the view controller.
     ///   - style: The expected presentation style. Defaults to automatic detection.
+    @available(*, deprecated)
     public func present(_ viewCtrl: UIViewController, animated: Bool = true, style: PresentationStyle? = nil, navigation: Bool = true) {
         let presentationStyle = style ?? automaticPresentationStyle(forViewController: viewCtrl)
 
         let presentingViewController = self.presentingViewController ?? UIWindow.visibleViewController(from: viewCtrl)
 
         switch presentationStyle {
-        case .modal(let completion):
+        case let .modal(completion):
             if let navigationCtrl = viewCtrl as? UINavigationController ?? viewCtrl.navigationController {
                 presentingViewController?.present(navigationCtrl, animated: animated, completion: completion)
             } else if !navigation {
