@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C4A3F9A1F42C4E700E40E86 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4A3F991F42C4E700E40E86 /* UIWindowExtension.swift */; };
-		5C4A3F9B1F42C4EE00E40E86 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4A3F991F42C4E700E40E86 /* UIWindowExtension.swift */; };
 		A14E0B291E1F9ECC00DFC788 /* Imperio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14E0B1F1E1F9ECC00DFC788 /* Imperio.framework */; };
 		A14E0B471E1F9EDE00DFC788 /* Imperio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14E0B3E1E1F9EDD00DFC788 /* Imperio.framework */; };
 		A14E0B7C1E1F9F5200DFC788 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14E0B731E1F9F5200DFC788 /* AppCoordinator.swift */; };
@@ -37,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C4A3F991F42C4E700E40E86 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
+		3829799D224DF10F00334F6B /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		82C76D061E4214C60027B35F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		82C76D071E4215110027B35F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		82C76D081E4215240027B35F /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			children = (
 				A14E0B741E1F9F5200DFC788 /* Coordinator.swift */,
 				A14E0B731E1F9F5200DFC788 /* AppCoordinator.swift */,
-				5C4A3F991F42C4E700E40E86 /* UIWindowExtension.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -166,6 +163,7 @@
 			children = (
 				82C76D061E4214C60027B35F /* README.md */,
 				82C76D0A1E4221FD0027B35F /* LICENSE.md */,
+				3829799D224DF10F00334F6B /* Cartfile */,
 				82C76D081E4215240027B35F /* Package.swift */,
 				82C76D091E4215480027B35F /* Imperio.podspec */,
 				82C76D071E4215110027B35F /* .swiftlint.yml */,
@@ -202,6 +200,7 @@
 				A14E0B1C1E1F9ECC00DFC788 /* Headers */,
 				A14E0B1D1E1F9ECC00DFC788 /* Resources */,
 				82C76D0C1E4222300027B35F /* Run Swift Linter */,
+				382979A0224DF13700334F6B /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -219,6 +218,7 @@
 				A14E0B241E1F9ECC00DFC788 /* Sources */,
 				A14E0B251E1F9ECC00DFC788 /* Frameworks */,
 				A14E0B261E1F9ECC00DFC788 /* Resources */,
+				382979A1224DF14200334F6B /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -238,6 +238,7 @@
 				A14E0B3A1E1F9EDD00DFC788 /* Frameworks */,
 				A14E0B3B1E1F9EDD00DFC788 /* Headers */,
 				A14E0B3C1E1F9EDD00DFC788 /* Resources */,
+				382979A2224DF14A00334F6B /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -255,6 +256,7 @@
 				A14E0B421E1F9EDE00DFC788 /* Sources */,
 				A14E0B431E1F9EDE00DFC788 /* Frameworks */,
 				A14E0B441E1F9EDE00DFC788 /* Resources */,
+				382979A3224DF15100334F6B /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -303,6 +305,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = A14E0B151E1F9ECC00DFC788;
@@ -350,6 +353,82 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		382979A0224DF13700334F6B /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/HandyUIKit.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		382979A1224DF14200334F6B /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/HandyUIKit.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		382979A2224DF14A00334F6B /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/HandyUIKit.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		382979A3224DF15100334F6B /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/HandyUIKit.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		82C76D0C1E4222300027B35F /* Run Swift Linter */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -371,7 +450,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C4A3F9A1F42C4E700E40E86 /* UIWindowExtension.swift in Sources */,
 				A14E0B7F1E1F9F5200DFC788 /* Coordinator.swift in Sources */,
 				A14E0B7C1E1F9F5200DFC788 /* AppCoordinator.swift in Sources */,
 			);
@@ -389,7 +467,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C4A3F9B1F42C4EE00E40E86 /* UIWindowExtension.swift in Sources */,
 				A14E0B801E1F9F5200DFC788 /* Coordinator.swift in Sources */,
 				A14E0B7D1E1F9F5200DFC788 /* AppCoordinator.swift in Sources */,
 			);

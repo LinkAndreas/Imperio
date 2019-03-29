@@ -6,6 +6,7 @@
 //  Copyright © 2016 Flinesoft. All rights reserved.
 //
 
+import HandyUIKit
 import UIKit
 
 /// The different presentation options.
