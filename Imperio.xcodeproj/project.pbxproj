@@ -200,7 +200,6 @@
 				A14E0B1C1E1F9ECC00DFC788 /* Headers */,
 				A14E0B1D1E1F9ECC00DFC788 /* Resources */,
 				82C76D0C1E4222300027B35F /* Run Swift Linter */,
-				382979A0224DF13700334F6B /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -218,7 +217,6 @@
 				A14E0B241E1F9ECC00DFC788 /* Sources */,
 				A14E0B251E1F9ECC00DFC788 /* Frameworks */,
 				A14E0B261E1F9ECC00DFC788 /* Resources */,
-				382979A1224DF14200334F6B /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -238,7 +236,6 @@
 				A14E0B3A1E1F9EDD00DFC788 /* Frameworks */,
 				A14E0B3B1E1F9EDD00DFC788 /* Headers */,
 				A14E0B3C1E1F9EDD00DFC788 /* Resources */,
-				382979A2224DF14A00334F6B /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -256,7 +253,6 @@
 				A14E0B421E1F9EDE00DFC788 /* Sources */,
 				A14E0B431E1F9EDE00DFC788 /* Frameworks */,
 				A14E0B441E1F9EDE00DFC788 /* Resources */,
-				382979A3224DF15100334F6B /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -353,82 +349,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		382979A0224DF13700334F6B /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/HandyUIKit.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		382979A1224DF14200334F6B /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/HandyUIKit.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		382979A2224DF14A00334F6B /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/HandyUIKit.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		382979A3224DF15100334F6B /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/HandyUIKit.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		82C76D0C1E4222300027B35F /* Run Swift Linter */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
