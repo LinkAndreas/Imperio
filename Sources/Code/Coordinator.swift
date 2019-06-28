@@ -6,7 +6,6 @@
 //  Copyright © 2016 Flinesoft. All rights reserved.
 //
 
-import HandyUIKit
 import UIKit
 
 /// The different presentation options.
@@ -190,7 +189,7 @@ open class Coordinator {
     open func present(_ viewCtrl: UIViewController, animated: Bool = true, style: PresentationStyle? = nil, navigation: Bool = true) {
         let presentationStyle = style ?? automaticPresentationStyle(forViewController: viewCtrl)
 
-        let presentingViewController = self.presentingViewController ?? UIWindow.visibleViewController(from: viewCtrl)
+        let presentingViewController = self.presentingViewController ?? visibleViewController(from: viewCtrl)
 
         switch presentationStyle {
         case let .modal(completion):
@@ -226,5 +225,29 @@ open class Coordinator {
         }
 
         return .push
+    }
+}
+
+extension Coordinator {
+    /// Recursively follows navigation controllers, tab bar controllers and modal presented view controllers starting
+    /// from the given view controller to find the currently visible view controller.
+    ///
+    /// - Parameters:
+    ///   - viewController: The view controller to start the recursive search from.
+    /// - Returns: The view controller that is most probably visible on screen right now.
+    private func visibleViewController(from viewController: UIViewController?) -> UIViewController? {
+        switch viewController {
+        case let navigationController as UINavigationController:
+            return visibleViewController(from: navigationController.visibleViewController ?? navigationController.topViewController)
+
+        case let tabBarController as UITabBarController:
+            return visibleViewController(from: tabBarController.selectedViewController)
+
+        case let presentingViewController where viewController?.presentedViewController != nil:
+            return visibleViewController(from: presentingViewController?.presentedViewController)
+
+        default:
+            return viewController
+        }
     }
 }
